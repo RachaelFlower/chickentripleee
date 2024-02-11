@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iridocyclitis</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  #container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  button {
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+  }
+  #yesBtn {
+    background-color: green;
+    color: white;
+  }
+  #noBtn {
+    background-color: red;
+    color: white;
+  }
+  #maybeBtn {
+    background-color: yellow;
+    color: black;
+  }
+  #doNotClickBtn {
+    background-color: black;
+    color: white;
+  }
+</style>
+</head>
+<body>
+<div id="container">
+  <h1>Meal deal date?</h1>
+  <p id="message">Couldn't be fucked with server-side so uh go wild. Also that maybe button is a weirdo don't click him</p>
+  <div>
+    <button id="yesBtn">Yes</button>
+    <button id="noBtn">No</button>
+    <button id="maybeBtn">Maybe</button>
+    <button id="doNotClickBtn">DO NOT CLICK!!!</button>
+  </div>
+  <img id="placeholderImage" src="https://d2lhwe7okuon6r.cloudfront.net/media/productimages/148/46/850146.png" alt="Mrs. Chicken Triple">
+</div>
+
+<script>
+  var yesButtonSize = 20;
+  var maybeButtonClickCount = 0;
+  var noButtonClickCount = 0;
+
+  var noMessages = [
+    "U wot m8?",
+    "mf I will cut you",
+    "Are you REALLY REALLY sure?",
+    "Last chance...",
+    "Fuck youu :P"
+  ];
+
+  var maybeMessages = [
+    "hehe that tickles",
+    "click me daddy ;)",
+    "oh fuck yeah",
+    "stop im gon' busttt",
+    "HNNNGGGGGGGGGGG",
+    "did u cum?",
+    "oh damn we still going?",
+    "OWWW",
+    "Mf did I say stop?",
+    "OWWWWWW",
+    "*slathers you in garlic mayo*",
+    "aight let's go again",
+  ];
+
+  document.getElementById('noBtn').addEventListener('click', function() {
+    if (noButtonClickCount >= 4) {
+      setTimeout(function() {
+        window.location.href = "https://www.youtube.com/watch?v=LAc3QlCky_k";
+      }, 1000); 
+      return;
+    }
+    
+    document.getElementById('noBtn').innerText = noMessages[noButtonClickCount];
+    noButtonClickCount++;
+    changePlaceholderImage("https://i.imgflip.com/4/33wxr8.jpg");
+    yesButtonSize += 20;
+    document.getElementById('yesBtn').style.fontSize = yesButtonSize + "px";
+    document.getElementById('message').innerText = "FREEEE WILLLLLLL BABEYYYYYYY";
+  });
+
+  document.getElementById('yesBtn').addEventListener('click', function() {
+    changePlaceholderImage("data:image/jpeg;base64,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");
+    setTimeout(function() {
+      window.location.href = "https://youtu.be/xvFZjo5PgG0?feature=shared";
+    }, 1500);
+    document.getElementById('message').innerText = "FUCK YEAH!!! <3";
+  });
+
+  document.getElementById('maybeBtn').addEventListener('click', function() {
+    maybeButtonClickCount = (maybeButtonClickCount + 1) % maybeMessages.length;
+    document.getElementById('maybeBtn').innerText = maybeMessages[maybeButtonClickCount];
+    changePlaceholderImage("https://media.tenor.com/P-dOrUIOsC0AAAAM/blow.gif");
+    yesButtonSize += 20;
+    document.getElementById('yesBtn').style.fontSize = yesButtonSize + "px";
+    document.getElementById('message').innerText = "Oh for FUCK SAKE now you've got him going...";
+  });
+
+  document.getElementById('doNotClickBtn').addEventListener('click', function() {
+    var btn = document.getElementById('doNotClickBtn');
+    if (btn.innerText === "DO NOT CLICK!!!") {
+      btn.innerText = "I SAID DO NOT CLICK!!!";
+    } else {
+      btn.innerText = "Fuckin' brat :P";
+      setTimeout(function() {
+        window.location.href = "https://www.google.com/search?q=How+to+join+ISIS&oq=How+to+join+ISIS&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIICAEQABgWGB4yCAgCEAAYFhgeMg0IAxAAGIYDGIAEGIoFMg0IBBAAGIYDGIAEGIoFMg0IBRAAGIYDGIAEGIoFMgYIBhBFGDzSAQg2OTI0ajBqNKgCALACAA&sourceid=chrome&ie=UTF-8";
+      }, 3000);
+    }
+  });
+
+  function changePlaceholderImage(imageUrl) {
+    document.getElementById('placeholderImage').src = imageUrl;
+  }
+</script>
+</body>
+</html>
